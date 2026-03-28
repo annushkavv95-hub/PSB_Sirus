@@ -1,0 +1,5 @@
+## Interface: 30300
+## Title: PSBar for Sirus 
+## Notes: Personal Status Bar (создала: Дочьхарона) 
+## SavedVariables: PSB_DB
+PSB_Sirus.lua
