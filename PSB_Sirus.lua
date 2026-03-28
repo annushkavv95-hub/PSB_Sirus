@@ -215,7 +215,39 @@ cb:SetScript("OnClick", function(self)
     UpdateVisuals()
 end)
 
+
+--вызов настроек и их управление через чат-команду
+
 SLASH_PSB1 = "/psb"
-SlashCmdList["PSB"] = function()
-    if gui:IsShown() then gui:Hide() else gui:Show() end
+SlashCmdList["PSB"] = function(msg)
+    local cmd, val = msg:match("^(%S*)%s*(.-)$")
+
+    if cmd == "scale" and tonumber(val) then
+        PSB_DB.scale = tonumber(val)
+        Layout()
+
+    elseif cmd == "alpha" and tonumber(val) then
+        PSB_DB.alpha = tonumber(val)
+        Layout()
+
+    elseif cmd == "x" and tonumber(val) then
+        PSB_DB.x = tonumber(val)
+        Layout()
+
+    elseif cmd == "y" and tonumber(val) then
+        PSB_DB.y = tonumber(val)
+        Layout()
+
+    elseif cmd == "percent" then
+        PSB_DB.showPercent = not PSB_DB.showPercent
+        UpdateVisuals()
+        print("PSB percent:", PSB_DB.showPercent and "ON" or "OFF")
+
+    elseif cmd == "reset" then
+        PSB_DB.x, PSB_DB.y = 0, -150
+        Layout()
+
+    else
+        print("/psb scale 1.2 | alpha 0.8 | x 0 | y -150 | percent | reset")
+    end
 end
