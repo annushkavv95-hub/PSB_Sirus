@@ -1,7 +1,3 @@
+Personal Status Bar
 
 Вызов меню через чат-команду: /psb
-
-/prd scale 1.2 — масштаб
-/prd alpha 0.8 — прозрачность
-/prd percent — вкл/выкл проценты
-/prd reset — сброс позиции
